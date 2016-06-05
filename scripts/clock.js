@@ -1,30 +1,45 @@
 var Clock = React.createClass({
   getTime: function() {
-    var t = moment().format(this.state.hourFormat);
+    var hf = "hh:mm"; // default
     var ap = moment().format('a');
+
+    if (this.state.format24) {
+        hf = "HH:mm";
+        ap = ""; // don't show am/pm in 24 hr time
+
+        if (this.state.showSeconds) {
+            hf = "HH:mm:ss";
+        }
+
+    } else if (this.state.showSeconds) {
+        hf = "hh:mm:ss";
+    }
+
+    this.setState({hourFormat: hf});
+
+    var t = moment().format(this.state.hourFormat);
+
     this.setState({curTime: t, amPm: ap});
   },
 
   toggleSeconds: function() {
       if ($("#toggleSeconds").is(':checked')) {
-          this.setState({hourFormat: 'hh:mm:ss'});
+          this.setState({showSeconds: true});
       } else {
-          this.setState({hourFormat: 'hh:mm'});
+          this.setState({showSeconds: false});
       }
   },
 
   toggle24: function() {
       if ($("#toggle24").is(':checked')) {
-          this.setState({hourFormat: 'HH:mm:ss'});
-          this.setState({amPm: ""});
+          this.setState({format24: true});
       } else {
-          this.setState({hourFormat: 'HH:mm'});
-          this.setState({amPm: moment().format('a')});
+          this.setState({format24: false});
       }
   },
 
   getInitialState: function() {
-    return {hourFormat: 'hh:mm'};
+    return {format24: false, seconds: false};
   },
 
   componentDidMount: function() {
