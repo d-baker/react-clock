@@ -18,6 +18,7 @@ body {
 .amPm {
     color: #666;
     font-size: 15vh;
+    margin-left: -0.25em;
 }
 
 .secondsToggle {
