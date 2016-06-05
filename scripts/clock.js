@@ -13,6 +13,16 @@ var Clock = React.createClass({
       }
   },
 
+  toggle24: function() {
+      if ($("#toggle24").is(':checked')) {
+          this.setState({hourFormat: 'HH:mm:ss'});
+          this.setState({amPm: ""});
+      } else {
+          this.setState({hourFormat: 'HH:mm'});
+          this.setState({amPm: moment().format('a')});
+      }
+  },
+
   getInitialState: function() {
     return {hourFormat: 'hh:mm'};
   },
@@ -21,6 +31,7 @@ var Clock = React.createClass({
     this.getTime();
     setInterval(this.getTime, this.props.pollInterval);
     $("#toggleSeconds").click(this.toggleSeconds);
+    $("#toggle24").click(this.toggle24);
   },
 
   render: function() {
