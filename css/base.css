@@ -21,13 +21,18 @@ body {
     margin-left: -0.25em;
 }
 
-.secondsToggle {
+#toggles {
     color: #666;
     font-size: 18px;
     text-align: center;
-    position: fixed; /* prevents the time from being pushed down, like float */
     top: 20px;
     width: 100%;
+    position: fixed;
+}
+
+.toggle {
+    display: inline;
+    margin-right: 20px;
 }
 
 label {

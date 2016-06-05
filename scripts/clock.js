@@ -26,11 +26,19 @@ var Clock = React.createClass({
   render: function() {
     return (
       <main>
-          <div className="secondsToggle">
-                <label for="toggleSeconds">Show seconds</label>
-                <input type="checkbox" name="toggleSeconds" id="toggleSeconds"/>
+
+          <div id="toggles">
+            <div className="toggle">
+                  <label for="toggleSeconds">Show seconds</label>
+                  <input type="checkbox" name="toggleSeconds" id="toggleSeconds"/>
+            </div>
+
+            <div className="toggle">
+                  <label for="toggle24">24-hour time</label>
+                  <input type="checkbox" name="toggle24" id="toggle24"/>
+            </div>
           </div>
-    
+
           <div className="clock">
                 <p>{this.state.curTime} <span className="amPm">{this.state.amPm}</span> </p>
           </div>
