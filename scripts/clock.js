@@ -1,23 +1,21 @@
 var Clock = React.createClass({
   getTime: function() {
-    var hf = "hh:mm"; // default
+    var hourFormat = "hh:mm"; // default
     var ap = moment().format('a');
 
     if (this.state.format24) {
-        hf = "HH:mm";
+        hourFormat = "HH:mm";
         ap = ""; // don't show am/pm in 24 hr time
 
         if (this.state.showSeconds) {
-            hf = "HH:mm:ss";
+            hourFormat = "HH:mm:ss";
         }
 
     } else if (this.state.showSeconds) {
-        hf = "hh:mm:ss";
+        hourFormat = "hh:mm:ss";
     }
 
-    this.setState({hourFormat: hf});
-
-    var t = moment().format(this.state.hourFormat);
+    var t = moment().format(hourFormat);
 
     this.setState({curTime: t, amPm: ap});
   },
