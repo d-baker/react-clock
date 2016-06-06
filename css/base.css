@@ -42,3 +42,22 @@ label {
 #toggleSeconds {
     vertical-align: middle;
 }
+
+@media screen and (max-width: 900px) {
+    #toggles {
+        position: relative;
+    }
+    .toggle {
+        display: block;
+        margin-bottom: 1em;
+    }
+
+    .clock {
+        font-size: 20vw;
+        padding-top: 10vh;
+    }
+    .amPm {
+        font-size: 10vw;
+        margin-left: -0.25em;
+    }
+}
