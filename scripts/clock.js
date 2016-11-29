@@ -37,7 +37,7 @@ var Clock = React.createClass({
   },
 
   getInitialState: function() {
-    return {format24: false, seconds: false};
+    return {format24: false, showSeconds: false};
   },
 
   componentDidMount: function() {
